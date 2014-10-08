@@ -165,6 +165,19 @@ Function Attach-Database ($server, $databaseName, $dataFileName, $logFileName)
 
 <#
 	.DESCRIPTION
+		Detach database on specified SQL server.
+#>
+
+Function Detach-Database ($server, $databaseName)
+{
+	"Detaching database - " + $databaseName
+	if ($server.databases[$databaseName] -ne $NULL) {
+		$server.DetachDatabase($databaseName, $false)
+	}
+}
+
+<#
+	.DESCRIPTION
 		Executes SQL file at the specified server / database
 #>
 Function Execute-File ($server, $database, $file) 
@@ -178,4 +191,5 @@ Export-ModuleMember -function Delete-Database
 Export-ModuleMember -function Restore-Database
 Export-ModuleMember -function Backup-Database
 Export-ModuleMember -function Attach-Database
+Export-ModuleMember -function Detach-Database
 Export-ModuleMember -function Execute-File
