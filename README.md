@@ -11,6 +11,7 @@ Basic DB operations - backup / restore / execute, etc.
 * Restore-Database
 * Backup-Database
 * Attach-Database
+* Detach-Database
 * Execute-File
 
 **FileUtils.psm1**
